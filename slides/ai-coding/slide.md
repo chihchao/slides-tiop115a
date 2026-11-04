@@ -10,33 +10,19 @@ transition: slide
 
 # Markdown
 
-姓名 ｜ 單位名稱 ｜ 2026.06
+許智超
+
+cchsu@mail.nsysu.edu.tw
 
 ---
 
-<!-- _class: lead -->
+### Introduction
 
-# 置中版面
-
-## 引言、單一訊息或過場
-
----
-
-<!-- _class: section-page -->
-
-### 第一章 章節標題
-
-章節說明文字
-
----
-
-### 標準內容頁
-
-- 第一項重點：說明文字
-- 第二項重點：說明文字
-- 第三項重點：說明文字
-
-> 引言或補充說明
+- Markdown的目標是「易讀易寫」
+- HTML與Markdown，Markdown並不是取代HTML，而是相輔相成
+    - HTML – 就像骨架，規劃整體的架構及格式
+    - Markdown – 就像血肉，便於撰寫及閱讀內容
+- Colab提供簡易編輯器協助編輯
 
 ---
 
