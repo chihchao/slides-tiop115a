@@ -41,6 +41,18 @@ Section subtitle or description goes here.
 
 ---
 
+<!-- _class: lead -->
+
+# 置中版面
+
+## 適合引言、單一訊息或過場
+
+<hr>
+
+使用 `lead` 版面，內容垂直水平置中
+
+---
+
 ### 投影片標題
 
 <hr>
@@ -96,6 +108,41 @@ Section subtitle or description goes here.
 - 說明第二項重點
 - 說明第三項重點
 - 說明第四項重點
+
+</div>
+</div>
+
+---
+
+<!-- _class: triplet -->
+
+### 三欄重點
+
+<hr>
+
+<div class="triplet-wrap">
+<div class="item">
+
+#### 項目一
+
+- 說明重點一
+- 說明重點二
+
+</div>
+<div class="item">
+
+#### 項目二
+
+- 說明重點一
+- 說明重點二
+
+</div>
+<div class="item alt">
+
+#### 項目三
+
+- 說明重點一
+- 說明重點二
 
 </div>
 </div>

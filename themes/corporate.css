@@ -4,7 +4,7 @@
    Corporate theme for Marp
    Palette: deep navy / light blue / white
    Font: Calibri / Arial
-   Slide types: cover · section-page · (default) · cols · stats · closing
+   Slide types: cover · section-page · (default) · cols · triplet · quad · stats · closing
    ---------------------------------------------------------------- */
 
 :root {
@@ -48,8 +48,9 @@ section::before {
 /* page number */
 section::after {
   font-family: var(--font);
-  font-size: 0.3143em;
+  font-size: 0.5em;
   color: var(--muted);
+  padding: 0 20px 16px 0;
 }
 
 /* ── Typography ─────────────────────────────────────────────── */
@@ -104,10 +105,10 @@ ul, ol {
   font-size: 0.9em;
   color: var(--text);
   line-height: 1.7;
-  /* inside position + padding matching h3's border(5px) + padding(14px) so
-     markers line up under the heading text's left edge, not the outside gutter */
-  list-style-position: inside;
-  padding-left: 19px;
+  /* outside position gives a hanging indent: wrapped lines align under the
+     first line's text instead of under the marker */
+  list-style-position: outside;
+  padding-left: 1.3em;
   margin: 0 0 10px;
 }
 
@@ -178,7 +179,7 @@ code {
   color: var(--navy);
   padding: 2px 6px;
   border-radius: 3px;
-  font-size: .88em;
+  font-size: .8em;
 }
 
 pre {
@@ -186,9 +187,20 @@ pre {
   border-left: 5px solid var(--navy);
   padding: 16px 20px;
   margin: 0 0 16px;
+  /* wrap long lines instead of overflowing the slide or a grid column */
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
-pre code { background: transparent; padding: 0; color: var(--text); }
+/* grid items default to min-width:auto and would grow to fit a long code
+   line; allow them to shrink so the code wraps inside the column */
+section .col, section .item, section .stat { min-width: 0; }
+
+pre code { background: transparent; padding: 0; color: var(--text); white-space: inherit; }
 
 /* ── Slide type: cover ──────────────────────────────────────────
    Usage:
@@ -233,6 +245,54 @@ section.cover p {
   font-size: 0.9em;
   color: var(--muted);
   margin-bottom: 4px;
+}
+
+/* ── Slide type: lead (Marp gaia 內建置中版面) ───────────────────
+   Usage:
+     <!-- _class: lead -->
+     # Title
+     ## Subtitle
+   Ports the official Marp gaia theme's `.lead` behaviour: flex
+   centering plus centered headings/paragraphs, with blockquote,
+   list-item and table alignment kept at gaia's defaults.
+   ─────────────────────────────────────────────────────────────── */
+
+section.lead {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+section.lead h1,
+section.lead h2,
+section.lead h3,
+section.lead h4,
+section.lead h5,
+section.lead h6,
+section.lead p {
+  text-align: center;
+  border-left: none;
+}
+
+section.lead blockquote > h1,
+section.lead blockquote > h2,
+section.lead blockquote > h3,
+section.lead blockquote > h4,
+section.lead blockquote > h5,
+section.lead blockquote > h6,
+section.lead blockquote > p {
+  text-align: left;
+}
+
+section.lead ul > li > p,
+section.lead ol > li > p {
+  text-align: left;
+}
+
+section.lead table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Slide type: section-page ───────────────────────────────────
@@ -304,7 +364,7 @@ section.section-page .num {
 
 section.cols .col-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -327,10 +387,57 @@ section.cols .col h2 {
   border-bottom: 1px solid var(--divider);
 }
 
-section.cols .col p { font-size: 0.4em; }
+section.cols .col p { font-size: 0.85em; }
 
 /* li's actual parent is <ul> (already 0.4286em of root), so its em is relative to that, not root */
 section.cols .col li { font-size: 0.9333em; }
+
+/* ── Slide type: triplet / cols3 (three-column grid) ───────────
+   Usage:
+     <!-- _class: triplet -->
+     ### Title
+     <hr>
+     <div class="triplet-wrap">
+       <div class="item">#### A<br>content</div>
+       <div class="item">#### B<br>content</div>
+       <div class="item">#### C<br>content</div>
+     </div>
+   ─────────────────────────────────────────────────────────────── */
+
+section.triplet .triplet-wrap,
+section.cols3 .col-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+section.triplet .item,
+section.cols3 .col {
+  background: var(--card);
+  border-left: 5px solid var(--navy);
+  padding: 18px 20px;
+}
+
+section.triplet .item.alt,
+section.cols3 .col.alt {
+  background: var(--white);
+  border: 1.5px solid var(--divider);
+  border-left: 5px solid var(--divider);
+}
+
+section.triplet .item h4,
+section.cols3 .col h4 {
+  font-size: 1em;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--divider);
+}
+
+section.triplet .item p,
+section.cols3 .col p { font-size: 0.85em; }
+
+section.triplet .item li,
+section.cols3 .col li { font-size: 0.85em; }
 
 /* ── Slide type: quad (four-column grid) ────────────────────────
    Usage:
@@ -347,27 +454,27 @@ section.cols .col li { font-size: 0.9333em; }
 
 section.quad .quad-wrap {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
 section.quad .item {
   background: var(--card);
-  border-left: 5px solid var(--navy);
+  border-left: none;
   padding: 14px 16px;
 }
 
 section.quad .item h4 {
-  font-size: 0.4em;
+  font-size: 1em;
   margin-bottom: 8px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--divider);
 }
 
-section.quad .item p { font-size: 0.34em; }
+section.quad .item p { font-size: 0.9em; }
 
 /* li's actual parent is <ul>, already scaled by the global ul rule, so this is relative to that */
-section.quad .item li { font-size: 0.85em; }
+section.quad .item li { font-size: 0.9em; }
 
 /* ── Slide type: stats (KPI cards) ─────────────────────────────
    Usage:
@@ -383,7 +490,7 @@ section.quad .item li { font-size: 0.85em; }
 
 section.stats .stat-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -397,7 +504,7 @@ section.stats .stat.hi { background: var(--navy); }
 
 section.stats .stat .n {
   display: block;
-  font-size: 1.7143em;
+  font-size: 1.5em;
   font-weight: 700;
   color: var(--navy);
   line-height: 1;
@@ -415,11 +522,14 @@ section.stats .stat.hi hr { border-color: #3D5E9C; }
 
 section.stats .stat .l {
   display: block;
-  font-size: 0.3714em;
+  font-size: 0.9em;
   color: var(--muted);
 }
 
-section.stats .stat.hi .l { color: #8FACD8; }
+section.stats .stat.hi h4 { color: #ffffff; }
+section.stats .stat.hi p { color: #E8EDF8; }
+section.stats .stat.hi .l { color: #E8EDF8; }
+section.stats .stat.hi strong { color: #FFFFFF; }
 
 /* ── Slide type: closing ────────────────────────────────────────
    Usage:

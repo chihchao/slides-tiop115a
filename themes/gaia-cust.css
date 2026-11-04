@@ -40,6 +40,22 @@ section.cover {
   text-align: center;
 }
 
+/* ── Slide type: lead (啟用官方 gaia 內建置中版面) ──────────────────
+   Usage:
+     <!-- _class: lead -->
+     # Title
+     ## Subtitle
+   Since this theme `@import 'gaia'`, the official `.lead` rules
+   (centered headings/paragraphs, table centering, blockquote/list
+   exceptions) are already inherited. Marp's gaia theme intentionally
+   ships `.lead` without `display: flex` so authors opt in — this is
+   that opt-in.
+   ─────────────────────────────────────────────────────────────── */
+
+section.lead {
+  display: flex;
+}
+
 /* ── Slide type: section-page ─────────────────────────────────────
    Usage:
      <!-- _class: section-page -->
@@ -104,4 +120,64 @@ section.quad h3 {
 section.quad p,
 section.quad li {
   font-size: 0.68em;
+}
+
+/* ── Slide type: cols (top title, two-column body) ─────────────────
+   Usage:
+     <!-- _class: cols -->
+     ### Title
+     <div class="col-wrap">
+       <div>
+
+       Left content
+
+       </div>
+       <div>
+
+       Right content
+
+       </div>
+     </div>
+   ─────────────────────────────────────────────────────────────── */
+
+section.cols .col-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ── Slide type: cols3 (top title, three-column body) ──────────────
+   Usage:
+     <!-- _class: cols3 -->
+     ### Title
+     <div class="col-wrap">
+       <div>
+
+       Column A
+
+       </div>
+       <div>
+
+       Column B
+
+       </div>
+       <div>
+
+       Column C
+
+       </div>
+     </div>
+   ─────────────────────────────────────────────────────────────── */
+
+section.cols3 .col-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+section.cols3 .col-wrap p,
+section.cols3 .col-wrap li {
+  font-size: 0.85em;
 }

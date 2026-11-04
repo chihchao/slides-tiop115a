@@ -25,6 +25,7 @@ themes/
 marp: true
 title: 簡報標題      # 會顯示在首頁清單
 paginate: true
+transition: slide   # 投影片切換效果，僅在 HTML 輸出／預覽時有效（PDF、PPTX 不支援）
 ---
 ```
 
@@ -41,6 +42,7 @@ paginate: true
 | `default` | Marp 內建主題 |
 | `uncover` | Marp 內建主題 |
 | `corporate` | 本專案自訂主題（`themes/corporate.css`）|
+| `gaia-cust` | 擴充 gaia 的自訂主題（`themes/gaia-cust.css`）|
 
 ## corporate 主題的投影片類型
 
@@ -51,12 +53,24 @@ paginate: true
 | （省略）| 標準內容頁 | `# 標題` + `<hr>` + 內文 |
 | `cover` | 封面 | `# 主標題` + `## 副標題` + `<hr>` + 說明 |
 | `section-page` | 章節標題頁 | `<span class="num">01</span>` + `# 標題` |
+| `lead` | 置中版面（移植自 gaia）| `# 標題` + `## 副標題` |
 | `cols` | 兩欄比較 | `<div class="col-wrap">` 包覆兩個 `<div class="col">` |
+| `triplet` | 三欄重點 | `<div class="triplet-wrap">` 包覆三個 `<div class="item">` |
+| `quad` | 四欄重點 | `<div class="quad-wrap">` 包覆四個 `<div class="item">` |
 | `stats` | 數據卡片 | `<div class="stat-wrap">` 包覆多個 `<div class="stat">` |
 | `closing` | 結尾頁 | `# 標題` + `<hr>` + 聯絡資訊 |
 
 `cols` 的次要欄加 `alt` class（`<div class="col alt">`）可改為白底框線樣式。  
 `stats` 的強調卡片加 `hi` class（`<div class="stat hi">`）可改為深色背景。
+
+## gaia-cust 主題的投影片類型
+
+`cover`、`lead`、`section-page`、`cols`、`cols3`、`compare`、`quad`，用法見範例檔。
+
+## 版面範例檔
+
+- `slides/_template/slide.md`：corporate 主題
+- `slides/_template-gaia/slide.md`：gaia-cust 主題
 
 ## 本機預覽
 
