@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="700" viewBox="0 0 1800 700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#718096"/>
+    </marker>
+    <style>
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; }
+      .subtitle { font: 600 21px -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; }
+      .body { font: 400 24px -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; }
+      .arrowlabel { font: 600 18px -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; fill:#4A5568; }
+    </style>
+  </defs>
+
+  <rect width="1800" height="700" fill="#ffffff"/>
+
+  <!-- SE 1.0 -->
+  <rect x="70" y="120" rx="28" ry="28" width="430" height="430" fill="#E8F3FF" stroke="#3182CE" stroke-width="4"/>
+  <text x="285" y="175" text-anchor="middle" class="title" fill="#1A365D">SE 1.0｜智能補全時代</text>
+  <text x="285" y="212" text-anchor="middle" class="subtitle" fill="#1A365D">Code Completion</text>
+  <text x="285" y="285" text-anchor="middle" class="body" fill="#1A365D">
+    <tspan x="285" dy="0">AI 扮演「文字接龍」角色</tspan>
+    <tspan x="285" dy="44">根據游標前後文預測程式碼</tspan>
+    <tspan x="285" dy="44">開發者逐行編寫與審查</tspan>
+    <tspan x="285" dy="44">主導權完全掌握在開發者手中</tspan>
+  </text>
+
+  <!-- Arrow 1 -->
+  <line x1="515" y1="335" x2="670" y2="335" stroke="#718096" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="592" y="292" text-anchor="middle" class="arrowlabel">程式碼生成</text>
+  <text x="592" y="316" text-anchor="middle" class="arrowlabel">能力提升</text>
+
+  <!-- SE 2.0 -->
+  <rect x="685" y="120" rx="28" ry="28" width="430" height="430" fill="#FFF4E5" stroke="#DD6B20" stroke-width="4"/>
+  <text x="900" y="175" text-anchor="middle" class="title" fill="#7B341E">SE 2.0｜對話與 Vibe Coding</text>
+  <text x="900" y="212" text-anchor="middle" class="subtitle" fill="#7B341E">Conversational &amp; Vibe Coding</text>
+  <text x="900" y="285" text-anchor="middle" class="body" fill="#7B341E">
+    <tspan x="900" dy="0">以自然語言描述開發需求</tspan>
+    <tspan x="900" dy="44">AI 直接產生大量程式碼</tspan>
+    <tspan x="900" dy="44">開發者傾向直接採納結果</tspan>
+    <tspan x="900" dy="44">開發快速，但可能累積技術債</tspan>
+  </text>
+
+  <!-- Arrow 2 -->
+  <line x1="1130" y1="335" x2="1290" y2="335" stroke="#718096" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1210" y="292" text-anchor="middle" class="arrowlabel">自主性與</text>
+  <text x="1210" y="316" text-anchor="middle" class="arrowlabel">工具使用能力提升</text>
+
+  <!-- SE 3.0 -->
+  <rect x="1305" y="120" rx="28" ry="28" width="420" height="430" fill="#E9F8EF" stroke="#38A169" stroke-width="4"/>
+  <text x="1515" y="175" text-anchor="middle" class="title" fill="#22543D">SE 3.0｜代理人化軟體工程</text>
+  <text x="1515" y="212" text-anchor="middle" class="subtitle" fill="#22543D">Agentic Software Engineering</text>
+  <text x="1515" y="285" text-anchor="middle" class="body" fill="#22543D">
+    <tspan x="1515" dy="0">目標導向與自主規劃</tspan>
+    <tspan x="1515" dy="44">跨檔案編輯與終端機操作</tspan>
+    <tspan x="1515" dy="44">自動測試、驗證與自我修復</tspan>
+    <tspan x="1515" dy="44">開發者轉型為 Agentic Engineer</tspan>
+  </text>
+
+  <!-- Bottom evolution summary -->
+  <text x="900" y="620" text-anchor="middle" class="subtitle" fill="#2D3748">
+    AI 演進：程式碼補全工具 → 對話式程式碼生成器 → 自主執行軟體工程任務的代理人
+  </text>
+</svg>
