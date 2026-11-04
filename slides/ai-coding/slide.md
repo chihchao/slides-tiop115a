@@ -26,131 +26,131 @@ cchsu@mail.nsysu.edu.tw
 
 ---
 
-<!-- _class: cols -->
+### 標題
 
-### 兩欄比較
+- 使用 # 建立標題
 
-<div class="col-wrap">
-<div>
-
-#### 方案 A
-
-- 說明第一項
-- 說明第二項
-
-</div>
-<div>
-
-#### 方案 B
-
-- 說明第一項
-- 說明第二項
-
-</div>
-</div>
+```markdown
+# Title H1
+## Title H2
+### Title H3
+```
 
 ---
 
-<!-- _class: cols3 -->
+### 段落及換行
 
-### 三欄內容
+- 空白行表示段落；二個空白加\n代表換行
 
-<div class="col-wrap">
-<div>
+```markdown
+段落一
 
-#### A
-
-- 說明重點
-
-</div>
-<div>
-
-#### B
-
-- 說明重點
-
-</div>
-<div>
-
-#### C
-
-- 說明重點
-
-</div>
-</div>
+段落二  
+段落二行內換行
+```
 
 ---
 
-<!-- _class: compare -->
+### 強調文字
 
-<div>
+- 使用符號 * _
+- 斜體 *text*
+粗體 **text**
 
-### 比較 A
-
-- 說明重點
-
-</div>
-<div>
-
-### 比較 B
-
-- 說明重點
-
-</div>
-<div>
-
-### 比較 C
-
-- 說明重點
-
-</div>
+```markdown
+*文字*  
+**文字**
+```
 
 ---
 
-<!-- _class: quad -->
+### 清單
 
-<div>
+- 無序清單符號 * + -，有序清單符號1. 2.
+- 符號和文字間要加空白
 
-### 項目一
+```markdown
+無序清單
+* 星號
++ 加號
+- 減號
 
-- 說明重點
+有序清單
+1. menu 1
+2. menu 2
+```
 
-</div>
-<div>
+---
 
-### 項目二
+### 待辦事項
 
-- 說明重點
+- 每行最前面加上-[ ]
+- 符號和文字間要加空白
 
-</div>
-<div>
+```markdown
+- [ ] 待辦事項  
+- [x] 完成事項
+```
 
-### 項目三
+---
 
-- 說明重點
+### 分隔線
 
-</div>
-<div>
+- 三個或以上的 * - _
 
-### 項目四
+```markdown
+***
+---
+___
+```
 
-- 說明重點
+---
 
-</div>
+### 連結
+
+可用[text](link "title")及<link>的方式建立
+
+```markdown
+[中山大學](http://www.nsysu.edu.tw/ "Link to NSYSU")  
+<http://www.nsysu.edu.tw>  
+<chihchao@go.edu.tw>
+```
+
+---
+
+### 引用
+
+- 使用 > 建立引用文字
+
+```markdown
+> Fear can hold you prisoner. Hope can set you free.
+```
+
+
+---
+
+### 圖片
+
+- ![alt text](path/to/img.png "title")
+- ![alt text][id]
+搭配
+[id]: url "title"
+
+```markdown
+![Python Logo](https://www.python.org/static/community_logos/python-logo-master-v3-TM.png "Python Logo")
+![Python Logo][logo]
+
+[logo]: https://www.python.org/static/community_logos/python-logo-master-v3-TM.png "Python Logo"
+```
 
 ---
 
 ### 表格
+- 依下列格式建置，冒號設定內容對齊方式，:- 靠左，-: 靠右，:-:置中
 
+```markdown
 | 項目 | 說明 | 數值 |
 |------|------|------|
 | 項目一 | 說明文字 | 100 |
 | 項目二 | 說明文字 | 200 |
-
----
-
-<!-- _class: lead -->
-
-# 感謝聆聽
-
-example@email.com
+```

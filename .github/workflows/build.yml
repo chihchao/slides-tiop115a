@@ -41,8 +41,11 @@ jobs:
 
           build_failed=0
           for dir in slides/*/; do
-            [ -f "${dir}slide.md" ] || continue
             name=$(basename "$dir")
+            case "$name" in
+              _*) continue ;;
+            esac
+            [ -f "${dir}slide.md" ] || continue
             mkdir -p "_site/$name"
 
             # --theme gaia is the default, but front matter theme: takes precedence.
@@ -84,6 +87,8 @@ jobs:
           slides = []
           slides_dir = 'slides'
           for name in sorted(os.listdir(slides_dir)):
+              if name.startswith('_'):
+                  continue
               slide_md = f'{slides_dir}/{name}/slide.md'
               html_out  = f'_site/{name}/index.html'
               if not os.path.isfile(slide_md) or not os.path.isfile(html_out):
