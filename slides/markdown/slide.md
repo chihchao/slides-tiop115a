@@ -114,7 +114,7 @@ ___
 
 ### 連結
 
-可用[text](link "title")及<link>的方式建立
+可用`[text](link "title")`及`<link>`的方式建立
 
 ```markdown
 [中山大學](http://www.nsysu.edu.tw/ "Link to NSYSU")  
@@ -137,10 +137,10 @@ ___
 
 ### 圖片
 
-- ![alt text](path/to/img.png "title")
-- ![alt text][id]
+- `![alt text](path/to/img.png "title")`
+- `![alt text][id]`
 搭配
-[id]: url "title"
+`[id]: url "title"`
 
 ```markdown
 ![Python Logo](https://www.python.org/static/community_logos/python-logo-master-v3-TM.png "Python Logo")
