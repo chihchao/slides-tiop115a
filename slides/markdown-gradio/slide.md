@@ -384,46 +384,8 @@ section p { text-align: center; }
 
 ### HW06 即時聊天室
 
+- [AI Coding Template](https://colab.research.google.com/drive/1cSueDVBDfg9eGjyGjGOw5P8wjIzs08BH)
+
 ![w:800](assets/chatroom.png)
 
----
-
-```python
-import gradio as gr
-
-# 全域訊息清單：每筆存放 {"user": 暱稱, "text": 訊息內容}
-history = []
-
-def join(name):
-    """確認暱稱：隱藏登入區、顯示聊天區、將暱稱存入 Session State"""
-
-def send(msg, my_name):
-    """發言後清空輸入框，訊息存入全域清單"""
-
-def sync(my_name):
-    """依據當前使用者暱稱，自己的訊息靠右 (user)，別人的靠左 (assistant)"""
-    """{"role": "user/assistant", "content": f"...message....."}"""
-
-with gr.Blocks(title="即時聊天室") as demo:
-    user_state = gr.State("")  # 每個分頁獨立的暱稱 State
-
-    # 1. 暱稱設定面板
-    with gr.Row(visible=True) as login_box:
-
-    # 2. 聊天面板（進入前隱藏）
-    with gr.Column(visible=False) as chat_box:
-        # 聊天對話框
-        bot = gr.Chatbot(label="即時聊天室")
-        # 訊息發送框
-        with gr.Row() as msg_box:
-        
-        # 每秒自動拉取最新訊息
-        gr.Timer(1.0).tick(sync, inputs=[user_state], outputs=[bot])
-
-    # 綁定進入聊天室事件（按鈕或 Enter）
-
-    # 綁定送出訊息事件（按鈕或 Enter）
-
-demo.queue().launch()
-```
 
