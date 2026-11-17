@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 380"
+     font-family="'Helvetica Neue', Arial, 'PingFang TC', sans-serif">
+  <defs>
+    <marker id="arr-b" markerWidth="8" markerHeight="6"
+            refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6699ff"/>
+    </marker>
+    <marker id="arr-g" markerWidth="8" markerHeight="6"
+            refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#339966"/>
+    </marker>
+    <marker id="arr-p" markerWidth="8" markerHeight="6"
+            refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9933cc"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="280" height="380" rx="14" fill="#f8f9ff"/>
+
+  <!-- ── 使用者 ── -->
+  <circle cx="140" cy="26" r="16" fill="#b0bcd0"/>
+  <path d="M 116 54 Q 116 44 140 44 Q 164 44 164 54" fill="#b0bcd0"/>
+  <text x="140" y="70" text-anchor="middle"
+        font-size="12" fill="#556" font-weight="600">使用者</text>
+
+  <!-- Arrow 1: 使用者 ↕ 前端 -->
+  <line x1="133" y1="74" x2="133" y2="100"
+        stroke="#6699ff" stroke-width="1.5" marker-end="url(#arr-b)"/>
+  <line x1="147" y1="100" x2="147" y2="74"
+        stroke="#6699ff" stroke-width="1.5" marker-end="url(#arr-b)"/>
+  <text x="154" y="89" font-size="8" fill="#6699ff">操作 ／ 顯示</text>
+
+  <!-- ── 前端 ── -->
+  <rect x="22" y="103" width="236" height="62" rx="10"
+        fill="#dce8ff" stroke="#6699ff" stroke-width="2"/>
+  <text x="140" y="128" text-anchor="middle"
+        font-size="16" fill="#1a3080" font-weight="bold">前端</text>
+  <text x="140" y="150" text-anchor="middle"
+        font-size="12" fill="#6699ff">Gradio</text>
+
+  <!-- Arrow 2: 前端 ↕ 後端 -->
+  <line x1="133" y1="169" x2="133" y2="195"
+        stroke="#339966" stroke-width="1.5" marker-end="url(#arr-g)"/>
+  <line x1="147" y1="195" x2="147" y2="169"
+        stroke="#339966" stroke-width="1.5" marker-end="url(#arr-g)"/>
+  <text x="154" y="184" font-size="8" fill="#339966">函式呼叫 ／ 回傳</text>
+
+  <!-- ── 後端 ── -->
+  <rect x="22" y="198" width="236" height="62" rx="10"
+        fill="#d4f4e4" stroke="#339966" stroke-width="2"/>
+  <text x="140" y="223" text-anchor="middle"
+        font-size="16" fill="#0d4020" font-weight="bold">後端</text>
+  <text x="140" y="245" text-anchor="middle"
+        font-size="12" fill="#339966">Python</text>
+
+  <!-- Arrow 3: 後端 ↕ 資料庫 -->
+  <line x1="133" y1="264" x2="133" y2="290"
+        stroke="#9933cc" stroke-width="1.5" marker-end="url(#arr-p)"/>
+  <line x1="147" y1="290" x2="147" y2="264"
+        stroke="#9933cc" stroke-width="1.5" marker-end="url(#arr-p)"/>
+  <text x="154" y="279" font-size="8" fill="#9933cc">讀取 ／ 寫入</text>
+
+  <!-- ── 資料庫 ── -->
+  <rect x="22" y="293" width="236" height="62" rx="10"
+        fill="#ede0f8" stroke="#9933cc" stroke-width="2"/>
+  <text x="140" y="318" text-anchor="middle"
+        font-size="16" fill="#3d0060" font-weight="bold">資料庫</text>
+  <text x="140" y="340" text-anchor="middle"
+        font-size="12" fill="#9933cc">Google 試算表</text>
+</svg>

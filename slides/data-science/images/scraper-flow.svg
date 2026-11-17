@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 500" font-family="'Helvetica Neue', Arial, 'PingFang TC', sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6699ff"/>
+    </marker>
+    <marker id="b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4466cc"/>
+    </marker>
+  </defs>
+
+  <rect width="360" height="500" rx="16" fill="#f0f4ff"/>
+
+  <!-- Step 1: 發送請求 -->
+  <rect x="28" y="18" width="286" height="66" rx="10" fill="white" stroke="#6699ff" stroke-width="1.5"/>
+  <circle cx="60" cy="51" r="19" fill="#6699ff"/>
+  <text x="60" y="57" text-anchor="middle" font-size="16" fill="white" font-weight="bold">1</text>
+  <text x="184" y="45" text-anchor="middle" font-size="13" fill="#1a3080" font-weight="bold">發送 HTTP 請求</text>
+  <text x="184" y="67" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">requests.get(url, timeout=10)</text>
+
+  <line x1="171" y1="84" x2="171" y2="106" stroke="#6699ff" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Step 2: 解析 HTML -->
+  <rect x="28" y="109" width="286" height="66" rx="10" fill="white" stroke="#6699ff" stroke-width="1.5"/>
+  <circle cx="60" cy="142" r="19" fill="#6699ff"/>
+  <text x="60" y="148" text-anchor="middle" font-size="16" fill="white" font-weight="bold">2</text>
+  <text x="184" y="136" text-anchor="middle" font-size="13" fill="#1a3080" font-weight="bold">解析 HTML 結構</text>
+  <text x="184" y="158" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">BeautifulSoup(html, "lxml")</text>
+
+  <line x1="171" y1="175" x2="171" y2="197" stroke="#6699ff" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Step 3: 提取資料 -->
+  <rect x="28" y="200" width="286" height="66" rx="10" fill="white" stroke="#6699ff" stroke-width="1.5"/>
+  <circle cx="60" cy="233" r="19" fill="#6699ff"/>
+  <text x="60" y="239" text-anchor="middle" font-size="16" fill="white" font-weight="bold">3</text>
+  <text x="184" y="227" text-anchor="middle" font-size="13" fill="#1a3080" font-weight="bold">提取目標資料</text>
+  <text x="184" y="249" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">soup.select(".titleline > a")</text>
+
+  <line x1="171" y1="266" x2="171" y2="288" stroke="#6699ff" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Step 4: 儲存資料 -->
+  <rect x="28" y="291" width="286" height="66" rx="10" fill="white" stroke="#6699ff" stroke-width="1.5"/>
+  <circle cx="60" cy="324" r="19" fill="#6699ff"/>
+  <text x="60" y="330" text-anchor="middle" font-size="16" fill="white" font-weight="bold">4</text>
+  <text x="184" y="318" text-anchor="middle" font-size="13" fill="#1a3080" font-weight="bold">輸出 CSV / JSON</text>
+  <text x="184" y="340" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">df.to_csv("output.csv")</text>
+
+  <line x1="171" y1="357" x2="171" y2="379" stroke="#6699ff" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Step 5: 處理分頁 (highlighted / loop) -->
+  <rect x="28" y="382" width="286" height="66" rx="10" fill="#dce8ff" stroke="#4466cc" stroke-width="2"/>
+  <circle cx="60" cy="415" r="19" fill="#4466cc"/>
+  <text x="60" y="421" text-anchor="middle" font-size="16" fill="white" font-weight="bold">5</text>
+  <text x="184" y="409" text-anchor="middle" font-size="13" fill="#1a3080" font-weight="bold">迴圈抓取分頁</text>
+  <text x="184" y="431" text-anchor="middle" font-size="11" fill="#888" font-family="'Courier New', monospace">for page in range(1, n+1)</text>
+
+  <!-- Loop-back dashed arrow on right side: step 5 → step 1 -->
+  <path d="M 314 415 L 338 415 L 338 51 L 314 51"
+        stroke="#4466cc" stroke-width="1.5" fill="none"
+        stroke-dasharray="6,3" marker-end="url(#b)"/>
+
+  <!-- "下一頁" label (rotated, on right side) -->
+  <text x="350" y="233"
+        text-anchor="middle" font-size="10" fill="#4466cc"
+        transform="rotate(-90,350,233)">下一頁</text>
+</svg>

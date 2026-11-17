@@ -1,0 +1,28 @@
+<svg width="500" height="450" viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Noto Sans TC', '微軟正黑體', 'Arial Unicode MS', sans-serif; }</style>
+  </defs>
+
+  <!-- Statistics circle - blue -->
+  <circle cx="175" cy="165" r="115" fill="#93c5fd" fill-opacity="0.4" stroke="#3b82f6" stroke-width="2.5"/>
+  <!-- Programming circle - pink -->
+  <circle cx="325" cy="165" r="115" fill="#f9a8d4" fill-opacity="0.4" stroke="#ec4899" stroke-width="2.5"/>
+  <!-- Domain Knowledge circle - green -->
+  <circle cx="250" cy="290" r="115" fill="#86efac" fill-opacity="0.4" stroke="#22c55e" stroke-width="2.5"/>
+
+  <!-- Statistics label (top-left, inside stats-only region) -->
+  <text x="140" y="118" text-anchor="middle" font-size="19" font-weight="bold" fill="#1d4ed8">統計學</text>
+  <text x="140" y="138" text-anchor="middle" font-size="13" fill="#1d4ed8">Statistics</text>
+
+  <!-- Programming label (top-right, inside prog-only region) -->
+  <text x="360" y="118" text-anchor="middle" font-size="19" font-weight="bold" fill="#be185d">程式設計</text>
+  <text x="360" y="138" text-anchor="middle" font-size="13" fill="#be185d">Programming</text>
+
+  <!-- Domain label (bottom, inside domain-only region) -->
+  <text x="250" y="356" text-anchor="middle" font-size="19" font-weight="bold" fill="#15803d">領域知識</text>
+  <text x="250" y="375" text-anchor="middle" font-size="13" fill="#15803d">Domain Knowledge</text>
+
+  <!-- Center label (3-way intersection) -->
+  <text x="250" y="203" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f2937">資料科學</text>
+  <text x="250" y="221" text-anchor="middle" font-size="12" fill="#374151">Data Scientist</text>
+</svg>

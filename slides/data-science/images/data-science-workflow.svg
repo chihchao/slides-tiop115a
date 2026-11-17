@@ -1,0 +1,45 @@
+<svg width="850" height="105" viewBox="0 0 850 105" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9ca3af"/>
+    </marker>
+    <style>text { font-family: 'Noto Sans TC', '微軟正黑體', 'Arial Unicode MS', sans-serif; }</style>
+  </defs>
+
+  <!-- Box 1: 問題定義 -->
+  <rect x="10" y="22" width="118" height="58" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="69" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">① 問題定義</text>
+  <text x="69" y="65" text-anchor="middle" font-size="11" fill="#3b82f6">Problem Framing</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="128" y1="51" x2="167" y2="51" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: 資料收集 -->
+  <rect x="168" y="22" width="118" height="58" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="227" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="#15803d">② 資料收集</text>
+  <text x="227" y="65" text-anchor="middle" font-size="11" fill="#22c55e">Data Collection</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="286" y1="51" x2="325" y2="51" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: 資料清理 -->
+  <rect x="326" y="22" width="118" height="58" rx="10" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="385" y="47" text-anchor="middle" font-size="14" font-weight="bold" fill="#854d0e">③ 資料清理</text>
+  <text x="385" y="65" text-anchor="middle" font-size="11" fill="#ca8a04">Data Cleaning</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="444" y1="51" x2="483" y2="51" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: 探索分析 + 視覺化 -->
+  <rect x="484" y="22" width="148" height="58" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+  <text x="558" y="45" text-anchor="middle" font-size="14" font-weight="bold" fill="#9d174d">④ 探索分析</text>
+  <text x="558" y="63" text-anchor="middle" font-size="12" fill="#be185d">EDA</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="632" y1="51" x2="671" y2="51" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 5: 建模與解讀 -->
+  <rect x="672" y="22" width="148" height="58" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="746" y="45" text-anchor="middle" font-size="14" font-weight="bold" fill="#5b21b6">⑤ 建模與解讀</text>
+  <text x="746" y="63" text-anchor="middle" font-size="11" fill="#7c3aed">Modeling &amp; Insight</text>
+</svg>
