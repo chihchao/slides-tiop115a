@@ -142,8 +142,14 @@ cchsu@mail.nsysu.edu.tw
 
 ---
 
+<style scoped>
+section p, li, pre { font-size: 0.8em; }
+</style>
+
 ### 行為怎麼寫？Given / When / Then
 
+- **Feature**：功能
+- **Scenario**：場景
 - **Given**：前提，目前的狀態
 - **When**：當發生什麼動作
 - **Then**：預期的結果
@@ -156,7 +162,7 @@ Feature: 購物車結帳
         Then  顯示訂單總額，並建立一筆待付款訂單
 ```
 
-一條需求 = 一個可驗證的情境，也能直接轉成測試
+一條需求就是一個可驗證的情境，也能直接轉成測試
 
 ---
 
@@ -284,7 +290,7 @@ def test_empty_input():
 ### 介接 Gemini API
 
 1. **取得 API Key**：到 Google AI Studio 建立並取得 API Key
-2. **安全保存**：存入 Colab Secrets（🔑），不要寫死在程式碼
+2. **安全保存**：存入 Colab Secrets，不要寫死在程式碼
 3. **安裝套件**：`!pip install -q google-genai`
 4. **呼叫模型**：送出 prompt，取得回應文字
 
@@ -296,14 +302,14 @@ def test_empty_input():
 ### HW09 PTT 電影版問答聊天機器人
 
 - **題目名稱**：串接 Gemini API 的 PTT 電影版問答聊天室
-- **任務情境**：HW08 已爬取 PTT 電影版文章，但要自己翻表格找答案很花時間；請用 Gradio 聊天視窗，讓使用者直接提問，由 Gemini 根據爬取內容回答
-- **可使用的資料**：HW08 爬取的文章結果（標題、作者、日期、推文數、內文）
+- **任務情境**：爬取 PTT 電影版文章，但要自己翻表格找答案很花時間；請用 Gradio 聊天視窗，讓使用者直接提問，由 Gemini 根據爬取內容回答
+- **可使用的資料**：HW08 爬取的文章
 - **範圍限制**：使用 Gemini API 與 Gradio `ChatInterface`；回答須依據爬取內容，內容中找不到時要明確告知，不可自行編造；不需重新爬取
-- **注意事項**：API Key 不可寫死在程式或上傳公開；用 Colab Secrets 或環境變數管理；注意 API 使用額度
+- **注意事項**：API Key 不可寫死在程式或上傳公開；用 Colab Secrets 或環境變數管理；注意 API 使用額度；注意使用的模型
 
 ---
 
-### Gemini Decision 1：用機率做判斷
+### 決策模型 Gemini Decision 1：用機率做判斷
 
 - **是什麼**：專為 Decisions API 設計的多模態模型，模型 ID：`gemini-decision-1`
 - **輸入**：文字、圖片、影片、音訊、PDF
