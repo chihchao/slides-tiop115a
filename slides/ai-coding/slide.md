@@ -214,11 +214,15 @@ def test_empty_input():
 
 ---
 
-<!-- _class: section-page -->
+### 在 Colab 中，我如何和 AI 協作？
 
-## 作業說明
+![w:900](assets/colab-ai-1.png)
 
-從規格到驗證
+---
+
+### 在 Colab 中，我如何和 AI 協作？
+
+![w:900](assets/colab-ai-2.png)
 
 ---
 
@@ -233,7 +237,7 @@ def test_empty_input():
 
 ---
 
-### HW07 BMI 計算器（BDD）
+### HW07 BMI 計算器（BDD Ver.）
 
 - **題目名稱**：BMI 計算器
 - **任務情境**：健康中心要批次計算學生的身體質量指數，並判斷體位
@@ -241,25 +245,12 @@ def test_empty_input():
 - **範圍限制**：最多 10 筆；只處理成人標準；不做飲食或醫療建議
 - **注意事項**：資料含個人健康資訊，不可上傳公開網站
 
-本作業不要求從零撰寫所有程式；可使用 AI 協助，但必須能說明規格、測試、採用與修改的程式碼
-
----
-
-### 在 Colab 中，我如何和 AI 協作？
-
-![w:900](assets/colab-ai-1.png)
-
----
-
-### 在 Colab 中，我如何和 AI 協作？
-
-![w:900](assets/colab-ai-2.png)
 
 ---
 
 <!-- _class: section-page -->
 
-## Crawler with AI
+## Crawler & LLM with AI
 
 ---
 
@@ -292,28 +283,41 @@ def test_empty_input():
 
 ### 介接 Gemini API
 
-1. **取得 API Key**：到 Google AI Studio 建立
+1. **取得 API Key**：到 Google AI Studio 建立並取得 API Key
 2. **安全保存**：存入 Colab Secrets（🔑），不要寫死在程式碼
-3. **安裝套件**：`pip install google-genai`
+3. **安裝套件**：`!pip install google-genai`
 4. **呼叫模型**：送出 prompt，取得回應文字
 
-```python
-from google import genai
-from google.colab import userdata
-
-client = genai.Client(api_key=userdata.get("GEMINI_API_KEY"))
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents="請用一句話介紹電影《蜘蛛人》",
-)
-print(response.text)
-```
 
 > 想讓 AI 依據 HW08 的資料回答：把爬取內容放進 prompt 當作參考資料
 
 ---
 
-### HW09 PTT 電影版問答聊天機器人
+### Gemini Decision 1：用機率做判斷
+
+- **是什麼**：專為 Decisions API 設計的多模態模型，模型 ID：`gemini-decision-1`
+- **輸入**：文字、圖片、影片、音訊、PDF
+- **輸出**：不生成文字，直接回傳**校準後的機率**與信心分數
+- **三種問題**：是非題、單選題（2～255 選項）、評分題（依評分標準）
+- **限制**：輸入最多 262,144 tokens；單次請求最多 1,000 個問題
+
+**適合**：文本分類、請求分流、依標準評分、政策檢查
+
+**不適合**：摘要、問答、對話（要生成文字，仍用一般 Gemini 模型）
+
+---
+
+### HW09 PTT 電影版文章情感分析
+
+- **題目名稱**：PTT 電影版文章情感分析
+- **任務情境**：想知道大家對最近電影的評價是好是壞，但逐篇閱讀很花時間；請用 Gemini 判斷每篇文章的情感，整理成表格與統計圖
+- **可使用的資料**：HW08 爬取的文章結果（標題、內文）；使用 Gemini API（可選用 `gemini-decision-1`）
+- **範圍限制**：每篇判斷為「正面／中立／負面」；輸出欄位：標題、情感、理由或機率；最多 20 篇；不需重新爬取
+- **注意事項**：API Key 不可寫死在程式或上傳公開；請人工抽查至少 5 篇，比較模型判斷與自己的判斷，並說明不一致的原因（例如反諷、劇透、純討論無評價）
+
+---
+
+### HW10 PTT 電影版問答聊天機器人
 
 - **題目名稱**：串接 Gemini API 的 PTT 電影版問答聊天室
 - **任務情境**：HW08 已爬取 PTT 電影版文章，但要自己翻表格找答案很花時間；請用 Gradio 聊天視窗，讓使用者直接提問，由 Gemini 根據爬取內容回答
@@ -321,5 +325,7 @@ print(response.text)
 - **範圍限制**：使用 Gemini API 與 Gradio `ChatInterface`；回答須依據爬取內容，內容中找不到時要明確告知，不可自行編造；不需重新爬取
 - **注意事項**：API Key 不可寫死在程式或上傳公開；用 Colab Secrets 或環境變數管理；注意 API 使用額度
 
-本作業不要求從零撰寫所有程式；可使用 AI 協助，但必須能說明規格、測試、採用與修改的程式碼
+
+
+
 
