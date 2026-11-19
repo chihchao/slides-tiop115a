@@ -12,7 +12,7 @@ transition: slide
 
 許智超
 
-cchsu@mail.nsysu.edu.tw
+<cchsu@mail.nsysu.edu.tw>
 
 ---
 
@@ -63,6 +63,10 @@ cchsu@mail.nsysu.edu.tw
 > AI 負責寫得快，軟體工程負責做得對
 
 ---
+
+<style scoped>
+p { text-align: center; }
+</style>
 
 ### 軟體工程（SE）與 AI 結合的演進階段
 
@@ -149,10 +153,10 @@ section p, li, pre { font-size: 0.8em; }
 ### 行為怎麼寫？Given / When / Then
 
 - **Feature**：功能
-- **Scenario**：場景
-- **Given**：前提，目前的狀態
-- **When**：當發生什麼動作
-- **Then**：預期的結果
+    - **Scenario**：場景
+        - **Given**：前提，目前的狀態
+        - **When**：當發生什麼動作
+        - **Then**：預期的結果
 
 ```gherkin
 Feature: 購物車結帳
@@ -205,6 +209,25 @@ Feature: 購物車結帳
 
 ---
 
+### assert：最簡單的自動化測試
+
+- 語法：`assert 條件, "失敗時的訊息"`
+- 條件為 `True` → 什麼都不發生，測試通過
+- 條件為 `False` → 丟出 `AssertionError`，測試失敗
+
+```python
+def add(a, b):
+    return a + b
+
+assert add(1, 2) == 3                 # 通過，沒有任何輸出
+assert add(-1, 1) == 0, "負數相加錯誤"  # 通過
+assert add(2, 2) == 5, "2 + 2 應該是 4"  # AssertionError: 2 + 2 應該是 4
+```
+
+浮點數用 `abs(a - b) < 0.01` 或 `round()` 比較，不要直接用 `==`
+
+---
+
 ### 如何撰寫好的測試案例
 
 - **正常情況**：最常見、預期的輸入
@@ -220,19 +243,7 @@ def test_empty_input():
 
 ---
 
-### 在 Colab 中，我如何和 AI 協作？
-
-![w:900](assets/colab-ai-1.png)
-
----
-
-### 在 Colab 中，我如何和 AI 協作？
-
-![w:900](assets/colab-ai-2.png)
-
----
-
-### 作業流程
+### 實作流程
 
 **Problem → Specification → Test → AI Generation → Verification → Reflection**
 
@@ -243,14 +254,33 @@ def test_empty_input():
 
 ---
 
+<style scoped>
+p { text-align: center; }
+</style>
+
+### 在 Colab 中，我如何和 AI 協作？
+
+![w:900](assets/colab-ai-1.png)
+
+---
+
+<style scoped>
+p { text-align: center; }
+</style>
+
+### 在 Colab 中，我如何和 AI 協作？
+
+![w:900](assets/colab-ai-2.png)
+
+---
+
 ### HW07 BMI 計算器（BDD Ver.）
 
 - **題目名稱**：BMI 計算器
-- **任務情境**：健康中心要批次計算學生的身體質量指數，並判斷體位
-- **可使用的資料**：CSV 檔（姓名、身高 cm、體重 kg），或手動輸入
-- **範圍限制**：最多 10 筆；只處理成人標準；不做飲食或醫療建議
-- **注意事項**：資料含個人健康資訊，不可上傳公開網站
-
+- **任務情境**：健康中心要計算學生的身體質量指數，並判斷體位
+- **可使用的資料**：手動輸入身高 cm、體重 kg
+- **範圍限制**：只處理成人標準；不做飲食或醫療建議
+- **注意事項**：使用 assert 自動化測試
 
 ---
 
