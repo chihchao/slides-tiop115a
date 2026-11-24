@@ -7,3 +7,10 @@ _site/
 
 # Node dependencies (if marp-cli installed locally via npm)
 node_modules/
+
+# Synology NAS metadata
+@eaDir/
+*@SynoEAStream
+*@SynoResource
+#recycle/
+.SynologyWorkingDirectory/
