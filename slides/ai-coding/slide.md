@@ -147,7 +147,7 @@ p { text-align: center; }
 ---
 
 <style scoped>
-section p, li, pre { font-size: 0.8em; }
+section p, li, pre { font-size: 0.9em; }
 </style>
 
 ### 行為怎麼寫？Given / When / Then
@@ -290,12 +290,101 @@ p { text-align: center; }
 
 ---
 
+### 什麼是網路爬蟲（Web Crawler）？
+
+- **定義**：用程式自動瀏覽網頁、擷取需要的資料
+- **人工 vs. 爬蟲**：人工要一頁頁點開、複製貼上；爬蟲幾秒鐘就能整理成表格
+- **常見用途**：比價、新聞彙整、輿情分析、收集研究資料
+- **本質**：模擬瀏覽器向伺服器「要網頁」，再從 HTML 中「挑出資料」
+
+> 爬蟲禮儀：先看網站規範與 `robots.txt`；請求之間要間隔；不抓個資；不轉載或商業使用
+
+---
+
+### 網頁的組成：HTML
+
+- 瀏覽器收到的是 **HTML**：由標籤（tag）組成的文字
+- 資料藏在標籤裡，用 **標籤名稱**、`class`、`id` 來定位
+- 在瀏覽器按 **F12**（或右鍵 →「檢查」）找到資料所在的標籤
+
+```html
+<div class="r-ent">
+  <div class="title">
+    <a href="/bbs/movie/M.1732500000.A.123.html">[討論] 這部電影好看嗎</a>
+  </div>
+  <div class="date">11/25</div>
+  <div class="author">user123</div>
+</div>
+```
+
+---
+
+### 如何爬蟲：四個步驟
+
+1. **觀察網頁**：用 F12 找出資料所在的標籤與 `class`
+2. **發送請求**：用 `requests` 取得網頁 HTML
+3. **解析資料**：用 `BeautifulSoup` 依標籤挑出需要的內容
+4. **整理儲存**：用 `pandas` 整理成表格，存成 CSV
+
+| 套件 | 用途 |
+| --- | --- |
+| `requests` | 向網站要網頁 |
+| `BeautifulSoup` | 從 HTML 找資料 |
+| `pandas` | 整理成表格 |
+
+---
+
+### 範例：抓取 PTT 電影版一頁標題
+
+```python
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+url = "https://www.ptt.cc/bbs/movie/index.html"
+res = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})  # 2. 發送請求
+soup = BeautifulSoup(res.text, "html.parser")                   # 3. 解析 HTML
+
+rows = []
+for item in soup.select("div.r-ent"):
+    a = item.select_one("div.title a")
+    if a is None:                      # 文章已被刪除，沒有連結
+        continue
+    rows.append({"標題": a.text.strip(),
+                 "日期": item.select_one("div.date").text.strip(),
+                 "網址": "https://www.ptt.cc" + a["href"]})
+
+df = pd.DataFrame(rows)                                         # 4. 整理成表格
+df
+```
+
+---
+
+### 爬更多頁、抓內文
+
+- **上一頁**：找到「‹ 上頁」按鈕的連結，重複同樣步驟
+- **文章內文**：進入每篇文章網址，抓 `div#main-content`
+- **每次請求之間** `time.sleep(1)`，避免造成網站負擔
+- **例外處理**：被刪除的文章、連線失敗，都要能略過而不中斷
+
+```python
+import time
+
+prev = soup.select_one("a.btn.wide:-soup-contains('上頁')")
+next_url = "https://www.ptt.cc" + prev["href"]
+time.sleep(1)    # 禮貌間隔
+```
+
+
+---
+
 ### HW08 爬取 PTT 電影版
 
 - **題目名稱**：爬取 PTT 電影版最新討論
 - **任務情境**：想知道最近大家在 PTT 電影版討論什麼電影，但人工逐頁瀏覽、整理很花時間；請寫程式自動擷取最新文章，整理成表格方便快速瀏覽
 - **可使用的資料**：PTT 電影版公開頁面 `https://www.ptt.cc/bbs/movie/index.html`
 - **範圍限制**：抓 5 頁文章列表及列表文章內文；不需要登入
+- **輸出要求**：存成 pandas `DataFrame`，欄位：標題、作者、日期、網址、內文；用 `df.head()` 顯示前幾筆，並存成 `ptt_movie.csv` 供 HW09、HW10 使用
 - **注意事項**：遵守網站使用規範；每次請求間隔至少 1 秒，避免短時間重複執行；只供課堂學習，不可轉載或商業使用
 
 本作業不要求從零撰寫所有程式；可使用 AI 協助，但必須能說明規格、測試、採用與修改的程式碼
